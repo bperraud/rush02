@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <fcntl.h>
-#include "header.h"
 #include "header.h"
 #define TAILLE_MAX 1000
-//find if string is all number
 
+/*
+ * find if string is all number
+ */
 int	is_num(char *str)
 {
 	int	a;
@@ -30,8 +29,10 @@ int	is_num(char *str)
 	}
 	return (0);
 }
-//remove starting 0 from string
 
+/*
+ * remove starting 0 from string
+*/
 char    *rm_zero(char   *str)
 {
 	int a;
@@ -47,8 +48,10 @@ char    *rm_zero(char   *str)
 		str = &str[a];
 	return (str);
 }
-// find the highest possible number in the dictionary
 
+/*
+ * find the highest possible number in the dictionary
+*/
 int	max_num(int dictionary)
 {
 	int		a;
@@ -77,8 +80,10 @@ int	max_num(int dictionary)
 	}
 	return (max);
 }
-//check if the string is an integer and that we can write it using the dictionary
 
+/*
+ * check if the string is an integer and that we can write it using the dictionary
+ */
 int	is_valid(char *str, int dictionary)
 {
 	if (ft_strlen(str) > max_num(dictionary))
@@ -87,8 +92,10 @@ int	is_valid(char *str, int dictionary)
 		return (1);
 	return (0);
 }
-//check if our args are valide and give back the string without it's starting 0 or null if the args are invalid
 
+/*
+ * check if our args are valide and give back the string without it's starting 0 or null if the args are invalid
+ */
 char *is_arg(int argc, char **argv)
 {
 	int	dictionary;
