@@ -127,9 +127,3 @@ char *is_arg(int argc, char **argv)
 	}
 	return (str);
 }
-
-/*int main (int argc, char **argv)
-  {
-  char *str = is_arg(argc, argv);
-  printf("\n\nstring is %s\n", str);
-  }*/
