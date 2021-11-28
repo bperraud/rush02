@@ -12,18 +12,8 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+#include "header.h"
 #define TAILLE_MAX 1000
-//find string length
-
-int	ft_strlen(char *str)
-{
-	int	a;
-
-	a = 0;
-	while (str[a])
-		a++;
-	return (a);
-}
 //find if string is all number
 
 int	is_num(char *str)
