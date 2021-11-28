@@ -13,7 +13,6 @@ void	ft_putstr(char *str);
 int	ft_strlen(const char *str);
 char	*ft_strncpy(char *dest, char *src, int n);
 char	*ft_strcat(char *dest, char *src);
-char	*ft_strcpy(char *dest, char *src);
 int	ft_natoi(const char *str, int nb_char);
 
 //function
@@ -34,11 +33,15 @@ int ft_get_index(char *number, char **numbers, int nb_lines);
 char *ft_str_in_dict(char *num);
 int main(int argc, char *argv[]);
 
-//is_argv
+//fuction_is_arg
 int	is_num(char *str);
 char    *rm_zero(char   *str);
 int	max_num(int dictionary);
-int	is_valid(char *str, int dictionary);
-char    *is_arg(int argc, char **argv);
+int	is_not_valid(char *str, int dictionary);
+
+//is_argv
+char	*argc2(char **argv);
+char	*argc3(char **argv);
+char	*is_arg(int argc, char **argv);
 
 #endif

@@ -23,8 +23,9 @@ char	*argc2(char **argv)
 		return (0);
 	dictionary = open("number", O_RDONLY);
 	str = rm_zero(argv[1]);
-	if (is_valid(str, dictionary))
+	if (is_not_valid(str, dictionary))
 		return (0);
+	close(dictionary);
 	return (str);
 }
 
@@ -41,8 +42,9 @@ char	*argc3(char **argv)
 	if (argv[2][0] == '\0')
 		return (0);
 	str = rm_zero(argv[2]);
-	if (is_valid(str, dictionary))
+	if (is_not_valid(str, dictionary))
 		return (0);
+	close(dictionary);
 	return (str);
 }
 

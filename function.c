@@ -79,7 +79,7 @@ void ft_to_power_ten(int power) {
     int i;
 
     i = 1;
-    str_power_ten = malloc(power * sizeof(char) + 2);   // nombre de zero + 1 pour le premier chiffre + 1 pour '\0'
+    str_power_ten = malloc(power * sizeof(char) + 2);
     if (!str_power_ten)
         return ;
     str_power_ten[0] = '1';
@@ -146,10 +146,10 @@ void ft_main_while(char *str, int packet_of_three, int power)
     while (packet_of_three > 0)
     {
         ft_print_hundred(str);
-        if (!ft_is_only_zero(str) && power > 2)    // si que des zero on print pas la puissance de 10
+        if (!ft_is_only_zero(str) && power > 2)
             ft_to_power_ten(power);
         packet_of_three--;
         power -= 3;
-        str += 3; // passe au paquet suivant
+        str += 3;
     }
 }
