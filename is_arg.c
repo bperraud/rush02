@@ -6,7 +6,7 @@
 /*   By: jpicron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 11:07:49 by jpicron           #+#    #+#             */
-/*   Updated: 2021/11/28 18:12:06 by jpicron          ###   ########.fr       */
+/*   Updated: 2021/11/28 18:17:09 by jpicron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
@@ -56,6 +56,6 @@ char	*is_arg(int argc, char **argv)
 	if (argc == 2)
 		str = argc2(argc, argv);
 	if (argc == 3)
-		str == argc3(argc, argv);
+		str = argc3(argc, argv);
 	return (str);
 }
