@@ -8,7 +8,7 @@ void ft_print_char(char *str) {
 
     r[0] = str[0];
     r[1] = '\0';
-    ft_putstr(ft_str_in_dict(r));
+    ft_putstr(ft_str_in_dict(r, 0));
 }
 
 /*
@@ -27,13 +27,13 @@ void ft_print_tens(char *str)   //ne prend que des strings de 2 char
             if (str[0] == '0')
                 ft_print_char(str + 1);
             else
-                ft_putstr(ft_str_in_dict(ft_strncpy(r, str, 2)));
+                ft_putstr(ft_str_in_dict(ft_strncpy(r, str, 2), 0));
         }
         else
         {
             r[0] = str[0];
             r[1] = '0';
-            ft_putstr(ft_str_in_dict(r));   // taille de la puissance de 10 + taille du premier chiffre + 2 espaces
+            ft_putstr(ft_str_in_dict(r, 0));   // taille de la puissance de 10 + taille du premier chiffre + 2 espaces
             ft_print_char(str + 1);
         }
     }
@@ -51,7 +51,7 @@ void ft_print_hundred(char *str)
     else
     {
         ft_print_char(str);
-        ft_putstr(ft_str_in_dict("100")) ;
+        ft_putstr(ft_str_in_dict("100", 0)) ;
         ft_print_tens(str + 1);
     }
 }
@@ -89,7 +89,7 @@ void ft_to_power_ten(int power) {
         i++;
     }
     str_power_ten[i] = '\0';
-    ft_putstr(ft_str_in_dict(str_power_ten));
+    ft_putstr(ft_str_in_dict(str_power_ten, 0));
     free(str_power_ten);
 }
 
@@ -100,13 +100,14 @@ int ft_is_only_zero(char *str)
     return (0);
 }
 
-
 void ft_print_written_number_2(char *str, int packet_of_three, int power, int zero_to_be_added)
 {
     char *str_copy;
     char *str_copy_free;
 
     str_copy = malloc((ft_strlen(str) + zero_to_be_added) * sizeof(char) + 1);
+    if (!str_copy)
+        return ;
     str_copy_free = str_copy;
     str_copy = ft_add_zero(str_copy , str, zero_to_be_added);
     ft_main_while(str_copy, packet_of_three, power);
@@ -123,7 +124,7 @@ void ft_print_written_number(char *str)
     zero_to_be_added = 0;
     len_str = ft_strlen(str);
     if (str[0] == '0' && len_str == 1)
-        ft_putstr(ft_str_in_dict("0"));
+        ft_putstr(ft_str_in_dict("0", 1));
     else if (len_str == 3)
         ft_print_hundred(str);
     else
@@ -132,7 +133,6 @@ void ft_print_written_number(char *str)
             zero_to_be_added = 2;
         else if (ft_strlen(str) % 3 == 2)
             zero_to_be_added = 1;
-
         packet_of_three = (len_str + zero_to_be_added) / 3;
         power = ((ft_strlen(str) - 1) / 3) * 3;
         if (power == 0)

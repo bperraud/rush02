@@ -78,7 +78,6 @@ int	max_num(int dictionary)
 
 int	is_not_valid(char *str, int dictionary)
 {
-    return (0);
     if (ft_strlen(str) > max_num(dictionary))
         return (1);
     if (is_num(str))

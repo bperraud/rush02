@@ -30,7 +30,7 @@ char **ft_get_words(char *buf, int num_lines);
 char **ft_get_numbers(char *buf, int num_lines);
 int ft_get_nblines(char *str);
 int ft_get_index(char *number, char **numbers, int nb_lines);
-char *ft_str_in_dict(char *num);
+char *ft_str_in_dict(char *num, int is_zero);
 int main(int argc, char *argv[]);
 
 //fuction_is_arg

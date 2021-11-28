@@ -1,5 +1,6 @@
 #include "header.h"
 
+extern int ISFIRST;
 char **ft_get_words(char *buf, int num_lines)
 {
 	int i;
@@ -130,7 +131,7 @@ int ft_get_index(char *number, char **numbers, int nb_lines)
 	return (-1);
 }
 
-char *ft_str_in_dict(char *num)
+char *ft_str_in_dict(char *num, int is_zero)
 {
 	char *buf;
 	int fd;
@@ -139,6 +140,9 @@ char *ft_str_in_dict(char *num)
 	int	index;
 	int nb_lines;
 
+	if (!ISFIRST)
+	    write(1, " ", 1);
+	ISFIRST = 0;
 	fd = open("number", O_RDONLY);
 	buf = malloc(2048 * sizeof(char));
 	if (!buf)
@@ -151,6 +155,14 @@ char *ft_str_in_dict(char *num)
 	free(buf);
 	index = ft_get_index(num, numbers, nb_lines);
 	if (index < 0)
-		return ("Error\n");
-	return (words[index]);
+    {
+        printf("index ; %d\n", index);
+        printf("num ; %s\n", num);
+        printf("%s\n", words[index]);
+        return ("Error ici\n");
+    }
+
+	if (ft_natoi(num, ft_strlen(num) != 0 || is_zero))
+	    return (words[index]);
+	return NULL;
 }
