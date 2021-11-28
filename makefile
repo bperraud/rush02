@@ -1,4 +1,4 @@
-SRCS	= function.c function_str.c is_arg.c main.c parsing.c
+SRCS	= function.c function_str.c is_arg.c main.c parsing.c function_is_arg.c
 
 OBJS	= ${SRCS:.c=.o}
 

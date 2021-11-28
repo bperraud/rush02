@@ -6,10 +6,10 @@
 /*   By: jpicron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 17:53:22 by jpicron           #+#    #+#             */
-/*   Updated: 2021/11/28 17:55:16 by jpicron          ###   ########.fr       */
+/*   Updated: 2021/11/28 18:16:06 by jpicron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "header.h"
 #define TAILLE_MAX 1000
 //find if string is all number
 
