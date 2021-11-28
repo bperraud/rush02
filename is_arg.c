@@ -14,21 +14,21 @@
 //check if our args are valide 
 //and give back the string without it's starting 0 
 //or null if the args are invalid
-char	*argc2(int argc, char **argv)
+char	*argc2(char **argv)
 {
 	int		dictionary;
 	char	*str;
 
 	if (argv[1][0] == '\0')
 		return (0);
-	dictionary = open("numbers.dict", O_RDONLY);
+	dictionary = open("number", O_RDONLY);
 	str = rm_zero(argv[1]);
 	if (is_valid(str, dictionary))
 		return (0);
 	return (str);
 }
 
-char	*argc3(int argc, char **argv)
+char	*argc3(char **argv)
 {
 	int		dictionary;
 	char	*str;
@@ -48,14 +48,13 @@ char	*argc3(int argc, char **argv)
 
 char	*is_arg(int argc, char **argv)
 {
-	int		dictionary;
 	char	*str;
 
 	if (argc != 2 && argc != 3)
 		return (0);
 	if (argc == 2)
-		str = argc2(argc, argv);
+		str = argc2(argv);
 	if (argc == 3)
-		str = argc3(argc, argv);
+		str = argc3(argv);
 	return (str);
 }

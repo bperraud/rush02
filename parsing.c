@@ -10,7 +10,6 @@ char **ft_get_words(char *buf, int num_lines)
 	
 	words = malloc(num_lines * sizeof(char *));
 	i = 0;
-	j = 0;
 	while(*buf)
 	{
 		j = 0;
@@ -46,7 +45,6 @@ char **ft_get_words(char *buf, int num_lines)
 }
 
 char **ft_get_numbers(char *buf, int num_lines)
-
 {
 	int i;
 	char **numbers;
@@ -132,7 +130,7 @@ int ft_get_index(char *number, char **numbers, int nb_lines)
 	return (-1);
 }
 
-char *ft_get_word(char *num)
+char *ft_str_in_dict(char *num)
 {
 	char *buf;
 	int fd;
@@ -141,7 +139,7 @@ char *ft_get_word(char *num)
 	int	index;
 	int nb_lines;
 
-	fd = open("numbers.txt", O_RDONLY);
+	fd = open("number", O_RDONLY);
 	buf = malloc(2048 * sizeof(char));
 	if (!buf)
 		return ("Error\n");

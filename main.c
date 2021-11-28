@@ -1,13 +1,14 @@
 #include "header.h"
 
-int main() {
-
-    char number[] = "100000";
-    printf("\n");
+int main(int argc, char **argv) {
 
 
-    ft_print(number);
+    char *string;
 
+    string = is_arg(argc, argv);
+
+    printf("%s", is_arg(argc, argv));
+    //ft_print_written_number(string);
 
     return (0);
 }

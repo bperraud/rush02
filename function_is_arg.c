@@ -11,8 +11,11 @@
 /* ************************************************************************** */
 #include "header.h"
 #define TAILLE_MAX 1000
-//find if string is all number
 
+
+/*
+ * find if string is all number
+ */
 int	is_num(char *str)
 {
 	int	a;

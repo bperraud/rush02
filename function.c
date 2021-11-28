@@ -1,38 +1,5 @@
 #include "header.h"
 
-char *ft_str_in_dict(char *str)
-{
-    write(1, " ", 1);
-
-    if (!ft_strcmp(str, "1000000"))
-        return "million";
-    if (!ft_strcmp(str, "12"))
-        return "twelve";
-    if (!ft_strcmp(str, "14"))
-        return "fourteen";
-    if (!ft_strcmp(str, "80"))
-        return "eighty";
-    if (!ft_strcmp(str, "0"))
-        return "";
-    if (!ft_strcmp(str, "1"))
-        return "one";
-    if (!ft_strcmp(str, "2"))
-        return "two";
-    if (!ft_strcmp(str, "3"))
-        return "three";
-    if (!ft_strcmp(str, "4"))
-        return "four";
-    if (!ft_strcmp(str, "5"))
-        return "five";
-    if (!ft_strcmp(str, "100"))
-        return "hundred";
-    if (!ft_strcmp(str, "1000"))
-        return "thousand";
-    if (!ft_strcmp(str, "10"))
-        return "ten";
-    return "rien";
-}
-
 /*
  * print the first char of str
  */
@@ -66,7 +33,6 @@ void ft_print_tens(char *str)   //ne prend que des strings de 2 char
         {
             r[0] = str[0];
             r[1] = '0';
-            //r[2] = '\0';
             ft_putstr(ft_str_in_dict(r));   // taille de la puissance de 10 + taille du premier chiffre + 2 espaces
             ft_print_char(str + 1);
         }
@@ -134,45 +100,44 @@ int ft_is_only_zero(char *str)
     return (0);
 }
 
-void ft_print(char *str)
+
+void ft_print_written_number_2(char *str, int packet_of_three, int power, int zero_to_be_added)
 {
-    int len_str;
+    char *str_copy;
+    char *str_copy_free;
+
+    str_copy = malloc((ft_strlen(str) + zero_to_be_added) * sizeof(char) + 1);
+    str_copy_free = str_copy;
+    str_copy = ft_add_zero(str_copy , str, zero_to_be_added);
+    ft_main_while(str_copy, packet_of_three, power);
+    free(str_copy_free);
+}
+
+void ft_print_written_number(char *str)
+{
     int packet_of_three;
     int power;
     int zero_to_be_added;
-    char *str_copy;
-    char *str_copy_free;
+    int len_str;
 
     zero_to_be_added = 0;
     len_str = ft_strlen(str);
     if (str[0] == '0' && len_str == 1)
         ft_putstr(ft_str_in_dict("0"));
-    else if (ft_strlen(str) == 3)
+    else if (len_str == 3)
         ft_print_hundred(str);
     else
     {
-        if (len_str % 3 == 1)
-        {
-            packet_of_three = (len_str + 2) / 3;
+        if (ft_strlen(str) % 3 == 1)
             zero_to_be_added = 2;
-        }
-        else if (len_str % 3 == 2)
-        {
-            packet_of_three = (len_str + 1) / 3;
+        else if (ft_strlen(str) % 3 == 2)
             zero_to_be_added = 1;
-        }
-        else
-            packet_of_three = (len_str / 3);
 
-        power = ((len_str - 1) / 3) * 3;
+        packet_of_three = (len_str + zero_to_be_added) / 3;
+        power = ((ft_strlen(str) - 1) / 3) * 3;
         if (power == 0)
             power = 2;
-
-        str_copy = malloc((len_str + zero_to_be_added) * sizeof(char) + 1);
-        str_copy_free = str_copy;
-        str_copy = ft_add_zero(str_copy , str, zero_to_be_added);
-        ft_main_while(str_copy, packet_of_three, power);
-        free(str_copy_free);
+        ft_print_written_number_2(str, packet_of_three, power, zero_to_be_added);
     }
 }
 
