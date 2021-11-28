@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdbool.h>
-#include <stdlib.h>
+#include "header.h"
 
 char **ft_get_words(char *buf, int num_lines)
 {
@@ -159,10 +155,4 @@ char *ft_get_word(char *num)
 	if (index < 0)
 		return ("Error\n");
 	return (words[index]);
-}
-
-int main(int argc, char *argv[])
-{
-	if (argc == 2)
-	printf("%s", ft_get_word(argv[1]));
 }

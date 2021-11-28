@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "header.h"
+#include "header.h"
 #define TAILLE_MAX 1000
 //find if string is all number
 

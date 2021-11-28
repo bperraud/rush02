@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include "stdlib.h"
 #include <unistd.h>
-
+#include <stdio.h>
+#include <fcntl.h>
+#include <stdbool.h>
 
 #ifndef HEADER_H
 # define HEADER_H
-
 
 //function_str
 void	ft_putstr(char *str);
